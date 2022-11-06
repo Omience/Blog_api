@@ -1,3 +1,4 @@
+const { isDate } = require("moment/moment");
 const mongoose = require("mongoose")
 
 const Schema = mongoose.Schema;
@@ -18,10 +19,6 @@ const BlogSchema =  new Schema({
     author: { 
         type: String
     },
-    timeStamp: {
-        type: Date,
-        default: Date.now
-    },
     state: {
         type: String,
         default: "draft"
@@ -31,7 +28,7 @@ const BlogSchema =  new Schema({
          default: 1
         },
     read_time: {
-        type: Number
+        type: String
     },
     body: {
         type: String,
@@ -40,7 +37,7 @@ const BlogSchema =  new Schema({
         lastUpdateAt: {
             type: Date,
             default: Date.now
-        }
+        },
 });
 
 

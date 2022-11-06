@@ -6,7 +6,7 @@ const {createTokenUser, createJWT} = require("../utils");
 
 
 const signup = async(req, res) => {
-    const {first_name, last_name, email, password} = req.body
+    const {first_name, last_name, email, password, isAdmin} = req.body
     const emailAlreadyExist = await User.findOne({email})
     if(emailAlreadyExist){
         throw new CustomError.BadRequestError("Email already exist")
@@ -17,7 +17,7 @@ const signup = async(req, res) => {
     const firstAccount = await User.countDocuments({}) === 0;
     const user_type = firstAccount ? 'admin' : 'user';
 
-    const user = await User.create({first_name, last_name, email, password, user_type});
+    const user = await User.create({first_name, last_name, email, password, user_type, isAdmin});
 
     await user.save()
     const token = await user.generateAuthToken();
