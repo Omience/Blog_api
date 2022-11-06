@@ -4,6 +4,7 @@
   "description": "Altschool africa NodeJS Backend Second Semester Examination.",
   "main": "app.js",
   "scripts": {
+    "start": "nodemon app.js",
     "test": "jest"
   },
   

@@ -14,7 +14,7 @@ const {
 const { request } = require("express")
 
 
-blogRouter.get('/', getAllBlogs)
+blogRouter.get('/',getAllBlogs)
 blogRouter.post("/", auth, createBlog)
 blogRouter.get("/:blogId", getBlogById)
 blogRouter.patch("/:blogId", auth, admin, updateBlog)
