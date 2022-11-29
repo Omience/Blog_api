@@ -1,4 +1,4 @@
-set filter to published
+//set filter to published
 const filterByPublished = (req, res, next) => {
   req.findFilter.state = 'published'
   next()
